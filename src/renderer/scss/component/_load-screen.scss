@@ -8,11 +8,16 @@
   color: $lbry-white;
   cursor: default;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  .spinner {
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 .load-screen__details {
-  font-size: 1rem;
   font-weight: 600;
   line-height: 1;
   max-width: 400px;
@@ -23,12 +28,16 @@
   margin-bottom: $spacing-vertical * 2/3;
 }
 
+.load-screen__help {
+  font-size: 1.25rem;
+  padding-top: $spacing-vertical;
+}
+
 .load-screen__message {
   font-size: 16px;
   font-weight: 800;
   line-height: 1;
   margin-bottom: $spacing-vertical * 2/3;
-  text-align: center;
 }
 
 .load-screen__title {
@@ -52,9 +61,4 @@
     text-transform: uppercase;
     top: 2.15rem;
   }
-}
-
-.load-screen--help {
-  font-size: 14px;
-  padding-top: $spacing-vertical;
 }

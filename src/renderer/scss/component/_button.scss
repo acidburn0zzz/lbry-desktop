@@ -108,6 +108,16 @@
   }
 }
 
+.btn--load-screen {
+  border-bottom: 1px solid $lbry-white;
+  display: inline-block;
+
+  &:hover {
+    border-bottom: 1px solid $lbry-blue-1;
+    color: $lbry-blue-1;
+  }
+}
+
 .btn--primary {
   border-radius: 1rem;
   color: $lbry-white;
