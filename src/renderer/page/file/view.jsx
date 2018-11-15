@@ -162,90 +162,85 @@ class FilePage extends React.Component<Props> {
 
     return (
       <Page forContent>
-        <section className="content__wrapper">
-          {showFile && <FileViewer className="content__embedded" uri={uri} mediaType={mediaType} />}
-          {!showFile &&
-            (thumbnail ? (
-              <Thumbnail shouldObscure={shouldObscureThumbnail} src={thumbnail} />
-            ) : (
-              <div
-                className={classnames('content__empty', {
-                  'content__empty--nsfw': shouldObscureThumbnail,
-                })}
-              >
-                <div className="card__media-text">
-                  {__("Sorry, looks like we can't preview this file.")}
-                </div>
-              </div>
-            ))}
-
-          <div className="card__content">
-            <div className="card--space-between">
-              <h1>{title}</h1>
-              <div className="card__title-identity-icons">
-                {isRewardContent && (
-                  <Icon size={20} iconColor="red" tooltip="bottom" icon={icons.FEATURED} />
-                )}
-                <FilePrice badge uri={normalizeURI(uri)} />
+        {showFile && <FileViewer className="content__embedded" uri={uri} mediaType={mediaType} />}
+        {!showFile &&
+          (thumbnail ? (
+            <Thumbnail shouldObscure={shouldObscureThumbnail} src={thumbnail} />
+          ) : (
+            <div
+              className={classnames('content__empty', {
+                'content__empty--nsfw': shouldObscureThumbnail,
+              })}
+            >
+              <div className="card__media-text">
+                {__("Sorry, looks like we can't preview this file.")}
               </div>
             </div>
-            <span className="card__subtitle">
-              <UriIndicator uri={uri} link /> {__('published on')}{' '}
-              <DateTime block={height} show={DateTime.SHOW_DATE} />
-            </span>
-            {metadata.nsfw && <div>NSFW</div>}
-            <div className="card__actions card__actions--no-margin card__actions--between">
-              <div className="card__actions">
-                {claimIsMine ? (
-                  <Button
-                    button="primary"
-                    icon={icons.EDIT}
-                    label={__('Edit')}
-                    onClick={() => {
-                      prepareEdit(claim, editUri);
-                      navigate('/publish');
-                    }}
-                  />
-                ) : (
-                  <SubscribeButton uri={channelUri} channelName={channelName} />
-                )}
-                {!claimIsMine && (
-                  <Button
-                    button="alt"
-                    icon={icons.GIFT}
-                    label={__('Send a tip')}
-                    onClick={() => openModal({ id: MODALS.SEND_TIP }, { uri })}
-                  />
-                )}
-                <Button
-                  button="alt"
-                  icon={icons.GLOBE}
-                  label={__('Share')}
-                  onClick={() => openModal({ id: MODALS.SOCIAL_SHARE }, { uri, speechShareable })}
-                />
-              </div>
+          ))}
 
-              <div className="card__actions">
-                <FileDownloadLink uri={uri} />
-                <FileActions uri={uri} claimId={claim.claim_id} />
-              </div>
+        <div className="media__content media__content--large">
+          <h1 className="media__title media__title--large">{title}</h1>
+
+          <div className="media__properties media__properties--large">
+            {isRewardContent && (
+              <Icon size={20} iconColor="red" tooltip="bottom" icon={icons.FEATURED} />
+            )}
+            {metadata.nsfw && <div className="media__property media__property--nsfw">NSFW</div>}
+            <FilePrice badge uri={normalizeURI(uri)} />
+          </div>
+
+          <div className="media__subtitle media__subtitle--large">
+            <div className="media__subtitle__channel">
+              <UriIndicator uri={uri} link />
             </div>
-            <FormRow>
-              <ToolTip direction="right" body={__('Automatically download and play free content.')}>
-                <FormField
-                  name="autoplay"
-                  type="checkbox"
-                  postfix={__('Autoplay')}
-                  checked={autoplay}
-                  onChange={this.onAutoplayChange}
-                />
-              </ToolTip>
-            </FormRow>
-            <div className="card__content">
-              <FileDetails uri={uri} />
+
+            <div className="media__subtitle__date">
+              {__('published on')} <DateTime block={height} show={DateTime.SHOW_DATE} />
             </div>
           </div>
-        </section>
+
+          <div className="media__actions media__actions--between">
+            <div className="media__actions__group--large">
+              {claimIsMine ? (
+                <Button
+                  button="primary"
+                  icon={icons.EDIT}
+                  label={__('Edit')}
+                  onClick={() => {
+                    prepareEdit(claim, editUri);
+                    navigate('/publish');
+                  }}
+                />
+              ) : (
+                <SubscribeButton uri={channelUri} channelName={channelName} />
+              )}
+              {!claimIsMine && (
+                <Button
+                  button="alt"
+                  icon={icons.GIFT}
+                  label={__('Send a tip')}
+                  onClick={() => openModal({ id: MODALS.SEND_TIP }, { uri })}
+                />
+              )}
+              <Button
+                button="alt"
+                icon={icons.GLOBE}
+                label={__('Share')}
+                onClick={() => openModal({ id: MODALS.SOCIAL_SHARE }, { uri, speechShareable })}
+              />
+            </div>
+
+            <div className="media__actions__group--large">
+              <FileDownloadLink uri={uri} />
+              <FileActions uri={uri} claimId={claim.claim_id} />
+            </div>
+          </div>
+
+          <div className="media__info--large">
+            <FileDetails uri={uri} />
+          </div>
+        </div>
+
         <RecommendedContent uri={uri} />
       </Page>
     );

@@ -71,7 +71,7 @@ class Button extends React.PureComponent<Props> {
             'btn--link': button === 'link',
             'btn--external-link': button === 'link' && href,
             'btn--uppercase': uppercase,
-            'btn--tourniquet': tourniquet,
+            'btn--constrict': tourniquet,
           }
         : 'btn--no-style',
       className

@@ -50,28 +50,33 @@ class WalletAddress extends React.PureComponent<Props, State> {
 
     return (
       <section className="card card--section">
-        <div className="card__title">{__('Receive Credits')}</div>
-        <p className="card__subtitle">
-          {__('Use this wallet address to receive credits sent by another user (or yourself).')}
-        </p>
+        <header className="card__header">
+          <h2 className="card__title">{__('Receive Credits')}</h2>
+          <p className="card__subtitle">
+            {__('Use this wallet address to receive credits sent by another user (or yourself).')}
+          </p>
+        </header>
 
         <div className="card__content">
           <Address address={receiveAddress} showCopyButton />
         </div>
 
-        <div className="card__actions">
-          <Button
-            button="primary"
-            label={__('Get New Address')}
-            icon={icons.REFRESH}
-            onClick={getNewAddress}
-            disabled={gettingNewAddress}
-          />
-          <Button
-            button="link"
-            label={showQR ? __('Hide QR code') : __('Show QR code')}
-            onClick={this.toggleQR}
-          />
+        <div className="card__content">
+          <div className="card__actions">
+            <Button
+              button="primary"
+              label={__('Get New Address')}
+              icon={icons.REFRESH}
+              onClick={getNewAddress}
+              disabled={gettingNewAddress}
+            />
+
+            <Button
+              button="link"
+              label={showQR ? __('Hide QR code') : __('Show QR code')}
+              onClick={this.toggleQR}
+            />
+          </div>
         </div>
 
         {showQR && (

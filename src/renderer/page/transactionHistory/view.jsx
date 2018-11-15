@@ -26,10 +26,17 @@ class TransactionHistoryPage extends React.PureComponent<Props> {
     return (
       <Page>
         <section className="card card--section">
-          <div className="card__title card--space-between">
-            {__('Transaction History')}
-            <RefreshTransactionButton />
-          </div>
+          <header className="card__header card__header--flat">
+            <h2
+              className={`card__title ${
+                fetchingTransactions && transactions.length ? 'reloading' : ''
+              }`}
+            >
+              {__('Transaction History')}
+              <RefreshTransactionButton />
+            </h2>
+          </header>
+
           {fetchingTransactions && !transactions.length ? (
             <div className="card__content">
               <BusyIndicator message={__('Loading transactions')} />

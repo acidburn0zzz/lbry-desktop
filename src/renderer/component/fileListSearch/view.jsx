@@ -35,33 +35,33 @@ class FileListSearch extends React.PureComponent<Props> {
       query && (
         <React.Fragment>
           <div className="search__results">
-            <div className="search-result__row">
-              <div className="file-list__header">{__('Search Results')}</div>
+            <section className="search__results__section">
+              <div className="search__results__title">{__('Search Results')}</div>
               <HiddenNsfwClaims uris={uris} />
               {!isSearching && fileResults.length ? (
                 fileResults.map(uri => <FileTile key={uri} uri={uri} />)
               ) : (
                 <NoResults />
               )}
-            </div>
+            </section>
 
-            <div className="search-result__row">
-              <div className="file-list__header">{__('Channels')}</div>
+            <section className="search__results__section">
+              <div className="search__results__title">{__('Channels')}</div>
               {!isSearching && channelResults.length ? (
                 channelResults.map(uri => <ChannelTile key={uri} uri={uri} />)
               ) : (
                 <NoResults />
               )}
-            </div>
+            </section>
 
-            <div className="search-result__row">
-              <div className="file-list__header">{__('Your downloads')}</div>
+            <section className="search__results__section">
+              <div className="search__results__title">{__('Your downloads')}</div>
               {downloadUris && downloadUris.length ? (
                 downloadUris.map(uri => <FileTile hideNoResult key={uri} uri={uri} />)
               ) : (
                 <NoResults />
               )}
-            </div>
+            </section>
           </div>
         </React.Fragment>
       )

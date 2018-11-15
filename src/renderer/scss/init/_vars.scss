@@ -1,5 +1,5 @@
 // Both of these should probably die and become variables as well
-$spacing-vertical: 24px;
+$spacing-vertical: 2rem;
 $spacing-width: 36px;
 
 $medium-breakpoint: 1279px;
@@ -30,7 +30,7 @@ $large-breakpoint: 1921px;
   --btn-height: 36px;
 
   // Header
-  --header-height: 60px;
+  --header-height: 3.25rem; // 60px;
 
   // Header -> search
   --search-modal-input-height: 70px;

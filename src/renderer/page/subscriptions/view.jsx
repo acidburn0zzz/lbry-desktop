@@ -49,11 +49,15 @@ export default class extends React.PureComponent<Props> {
     if (viewMode === VIEW_ALL) {
       return (
         <React.Fragment>
-          <div className="card__title">{__('Your subscriptions')}</div>
+          <header className="card__header">
+            <h2 className="card__title">{__('Your Subscriptions')}</h2>
+          </header>
+
           <FileList hideFilter sortByHeight fileInfos={allSubscriptions} />
         </React.Fragment>
       );
     }
+
     return (
       <React.Fragment>
         {unreadSubscriptions.length ? (
@@ -70,17 +74,26 @@ export default class extends React.PureComponent<Props> {
                   />
                 </div>
                 <div className="card__list card__content">
-                  {uris.map(uri => <FileCard isNew key={uri} uri={uri} />)}
+                  {uris.map(uri => (
+                    <FileCard isNew key={uri} uri={uri} />
+                  ))}
                 </div>
               </section>
             );
           })
         ) : (
           <div className="page__empty">
-            <h3 className="card__title">{__('You are all caught up!')}</h3>
-            <div className="card__actions">
-              <Button button="primary" navigate="/discover" label={__('Explore new content')} />
-            </div>
+            <section className="card__content">
+              <header className="card__header">
+                <h2 className="card__title">{__('You are all caught up!')}</h2>
+              </header>
+
+              <div className="card__content">
+                <div className="card__actions">
+                  <Button button="primary" navigate="/discover" label={__('Explore new content')} />
+                </div>
+              </div>
+            </section>
           </div>
         )}
       </React.Fragment>
@@ -111,43 +124,46 @@ export default class extends React.PureComponent<Props> {
           }, [])}
         />
         {!!subscribedChannels.length && (
-          <div className="card--space-between">
-            <div className="card__actions card__actions--no-margin">
-              <Button
-                disabled={viewMode === VIEW_ALL}
-                button="link"
-                label="All Subscriptions"
-                onClick={() => doSetViewMode(VIEW_ALL)}
-              />
-              <Button
-                button="link"
-                disabled={viewMode === VIEW_LATEST_FIRST}
-                label={__('Latest Only')}
-                onClick={() => doSetViewMode(VIEW_LATEST_FIRST)}
+          <div className="card card--section">
+            <div className="card__content card--space-between">
+              <div className="card__actions">
+                <Button
+                  disabled={viewMode === VIEW_ALL}
+                  button="link"
+                  label="All Subscriptions"
+                  onClick={() => doSetViewMode(VIEW_ALL)}
+                />
+                <Button
+                  button="link"
+                  disabled={viewMode === VIEW_LATEST_FIRST}
+                  label={__('Latest Only')}
+                  onClick={() => doSetViewMode(VIEW_LATEST_FIRST)}
+                />
+              </div>
+
+              <FormField
+                type="checkbox"
+                name="auto_download"
+                onChange={this.onAutoDownloadChange}
+                checked={autoDownload}
+                prefix={__('Auto download')}
               />
             </div>
-            <FormField
-              type="checkbox"
-              name="auto_download"
-              onChange={this.onAutoDownloadChange}
-              checked={autoDownload}
-              prefix={__('Auto download')}
-            />
           </div>
         )}
         {!subscribedChannels.length && (
           <div className="page__empty">
-            <h3 className="card__title">
-              {__("It looks like you aren't subscribed to any channels yet.")}
-            </h3>
-            <div className="card__actions">
-              <Button button="primary" navigate="/discover" label={__('Explore new content')} />
-            </div>
+            <section className="card card--section">
+              <p className="card__content">
+                {__("It looks like you aren't subscribed to any channels yet.")}
+              </p>
+              <div className="card__actions card__actions--center">
+                <Button button="primary" navigate="/discover" label={__('Explore new content')} />
+              </div>
+            </section>
           </div>
         )}
-        {!!subscribedChannels.length && (
-          <div className="card__content">{this.renderSubscriptions()}</div>
-        )}
+        {!!subscribedChannels.length && <div>{this.renderSubscriptions()}</div>}
       </Page>
     );
   }

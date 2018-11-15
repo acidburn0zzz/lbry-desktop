@@ -214,9 +214,9 @@ class CategoryList extends React.PureComponent<Props, State> {
     const showScrollButtons = isCommunityTopBids ? !obscureNsfw : true;
 
     return (
-      <div className="card-row">
-        <div className="card-row__header">
-          <div className="card-row__title">
+      <section className="media-group--row">
+        <header className="media-group__header">
+          <div className="media-group__header__title">
             {categoryLink ? (
               <Button label={category} navigate="/show" navigateParams={{ uri: categoryLink }} />
             ) : (
@@ -232,53 +232,46 @@ class CategoryList extends React.PureComponent<Props, State> {
             )}
           </div>
           {showScrollButtons && (
-            <div className="card-row__scroll-btns">
+            <nav className="media-group__header__navigation">
               <Button
-                className="btn--arrow"
+                className="previous"
                 disabled={!canScrollPrevious}
                 onClick={this.handleScrollPrevious}
                 icon={icons.ARROW_LEFT}
               />
               <Button
-                className="btn--arrow"
+                className="next"
                 disabled={!canScrollNext}
                 onClick={this.handleScrollNext}
                 icon={icons.ARROW_RIGHT}
               />
-            </div>
+            </nav>
           )}
-        </div>
+        </header>
         {obscureNsfw && isCommunityTopBids ? (
-          <div className="card-row__message help">
+          <p className="media__message media__message--help">
             {__(
               'The community top bids section is only visible if you allow mature content in the app. You can change your content viewing preferences'
             )}{' '}
             <Button button="link" navigate="/settings" label={__('here')} />.
-          </div>
+          </p>
         ) : (
-          <div
-            className="card-row__scrollhouse"
+          <ul
+            className="media-scrollhouse"
             ref={ref => {
               this.rowItems = ref;
             }}
           >
-            {names &&
-              names.map(name => (
-                <FileCard showSubscribedLogo key={name} uri={normalizeURI(name)} />
-              ))}
+            {names && names.map(name => <FileCard key={name} uri={normalizeURI(name)} />)}
 
             {channelClaims &&
               channelClaims.length &&
               channelClaims.map(claim => (
-                <FileCard
-                  showSubcribedLogo
-                  key={claim.claim_id}
-                  uri={`lbry://${claim.name}#${claim.claim_id}`}
-                />
+                <FileCard key={claim.claim_id} uri={`lbry://${claim.name}#${claim.claim_id}`} />
               ))}
-          </div>
+          </ul>
         )}
-      </div>
+      </section>
     );
   }
 }

@@ -271,6 +271,7 @@ class FileViewer extends React.PureComponent<Props> {
               uri={uri}
               isLoading={isLoading}
               mediaType={mediaType}
+              className="play"
             />
           </div>
         )}

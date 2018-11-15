@@ -32,21 +32,13 @@
   }
 }
 
-.spinner--light {
-  .rect {
-    background-color: $lbry-white;
-  }
-}
-
 .spinner--dark {
   .rect {
     background-color: $lbry-black;
   }
 }
 
-.spinner--splash {
-  margin-top: $spacing-vertical;
-
+.spinner--light {
   .rect {
     background-color: $lbry-white;
   }
@@ -67,14 +59,10 @@
   }
 }
 
-@keyframes sk-stretchdelay {
-  0%,
-  40%,
-  100% {
-    transform: scaleY(0.4);
-  }
+.spinner--splash {
+  margin-top: $spacing-vertical;
 
-  20% {
-    transform: scaleY(1);
+  .rect {
+    background-color: $lbry-white;
   }
 }

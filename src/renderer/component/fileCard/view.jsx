@@ -69,12 +69,12 @@ class FileCard extends React.PureComponent<Props> {
 
     if (!claim && !pending) {
       return (
-        <div className="card card--small">
-          <div className="card--placeholder card__media" />
-          <div className="card--placeholder placeholder__title" />
-          <div className="card--placeholder placeholder__channel" />
-          <div className="card--placeholder placeholder__date" />
-        </div>
+        <section className="media media--placeholder small">
+          <div className="media__thumb" />
+          <div className="media__title" />
+          <div className="media__channel" />
+          <div className="media__date" />
+        </section>
       );
     }
 
@@ -101,34 +101,29 @@ class FileCard extends React.PureComponent<Props> {
         tabIndex="0"
         role="button"
         onClick={!pending ? () => navigate('/show', { uri }) : () => {}}
-        className={classnames('card card--small', {
-          'card--link': !pending,
-          'card--pending': pending,
+        className={classnames('media small', {
+          'media--link': !pending,
+          'media--pending': pending,
         })}
         onContextMenu={handleContextMenu}
       >
         <CardMedia thumbnail={thumbnail} />
-        <div className="card__title card__title--file-card">
+        <div className="media__title">
           <TruncatedText text={title} lines={2} />
         </div>
-        <div className="card__subtitle">
+        <div className="media__subtitle">
           {pending ? <div>Pending...</div> : <UriIndicator uri={uri} link />}
         </div>
-        <div className="card__subtitle card--space-between">
+        <div className="media__date">
           <DateTime timeAgo block={height} />
-
-          <div className="card__file-properties">
-            <FilePrice hideFree uri={uri} />
-            {isRewardContent && <Icon iconColor="red" icon={icons.FEATURED} />}
-            {showSubscribedLogo && isSubscribed && <Icon icon={icons.HEART} />}
-            {fileInfo && <Icon icon={icons.LOCAL} />}
-          </div>
         </div>
-        {isNew && (
-          <div className="card__subtitle">
-            <span className="badge badge--alert">{__('NEW')}</span>
-          </div>
-        )}
+        <div className="media__properties">
+          <FilePrice hideFree uri={uri} />
+          {isRewardContent && <Icon iconColor="red" icon={icons.FEATURED} />}
+          {isSubscribed && <Icon icon={icons.HEART} />}
+          {fileInfo && <Icon icon={icons.LOCAL} />}
+          {isNew && (<span className="badge badge--alert">{__('NEW')}</span>)}
+        </div>
       </section>
     );
     /* eslint-enable jsx-a11y/click-events-have-key-events */

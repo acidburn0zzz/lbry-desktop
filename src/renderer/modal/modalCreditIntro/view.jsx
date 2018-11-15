@@ -37,6 +37,9 @@ const ModalCreditIntro = (props: Props) => {
             {__('in free rewards for participating in the LBRY beta.')}
           </p>
         )}
+      </section>
+
+      <section className="card__content">
         <div className="card__actions card__actions--center">
           <Button button="primary" onClick={addBalance} label={__('Get Credits')} />
           <Button
