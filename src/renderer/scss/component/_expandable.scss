@@ -1,6 +1,20 @@
 .expandable {
-  border-bottom: var(--input-border-size) solid $lbry-gray-3;
-  padding-bottom: $spacing-vertical * 1/3;
+  border-bottom: 1px solid $lbry-gray-1;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+
+  html[data-theme='dark'] & {
+    border-color: rgba($lbry-gray-5, 0.2);
+  }
+}
+
+.expandable__button {
+  font-size: 1.25rem;
+}
+
+.expandable--closed,
+.expandable--open {
+  margin-bottom: 0.5rem;
 }
 
 .expandable--closed {
@@ -9,7 +23,7 @@
   position: relative;
 
   &::after {
-    width: 100%; height: 20%;
+    width: 100%; height: 100%;
     bottom: 0; left: 0;
 
     background-image: linear-gradient(
@@ -19,6 +33,14 @@
     );
     content: '';
     position: absolute;
+
+    html[data-theme='dark'] & {
+      background-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        $lbry-black 90%
+      );
+    }
   }
 }
 
