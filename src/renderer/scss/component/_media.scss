@@ -185,15 +185,9 @@
 //  M E S S A G E
 
 .media__message {
-  cursor: default;
   font-size: 0.9rem;
   padding: 1rem;
   white-space: normal;
-
-  button {
-    color: $lbry-teal-3;
-    cursor: pointer;
-  }
 }
 
 .media__message--help {
@@ -449,7 +443,7 @@
   }
 }
 
-.media-group--list--recommended {
+.media-group--list-recommended {
   border-left: 1px solid $lbry-gray-1;
   float: right;
   overflow: hidden;
@@ -476,18 +470,18 @@
   }
 }
 
-.media-group--list--rewards {
-  .media {
-    display: inline-block;
-    margin-bottom: 20px;
-    vertical-align: top;
-    width: calc(50% - 10px);
+// .media-group--list-rewards {
+//   .media {
+//     display: inline-block;
+//     margin-bottom: 20px;
+//     vertical-align: top;
+//     width: calc(50% - 10px);
 
-    &:not(:nth-child(2n + 1)) {
-      margin-left: 20px;
-    }
-  }
-}
+//     &:not(:nth-child(2n + 1)) {
+//       margin-left: 20px;
+//     }
+//   }
+// }
 
 .media-group--row {
   white-space: nowrap;
@@ -525,7 +519,7 @@
       padding-bottom: 1rem;
     }
 
-    .media-group__header__title {
+    .media-group__header-title {
       background-image: linear-gradient(to right, $lbry-white 80%, transparent 100%);
     }
   }
@@ -541,7 +535,7 @@
   &:not(:first-of-type) {
     padding-bottom: 1.5rem;
 
-    .media-group__header__title {
+    .media-group__header-title {
       background-image: linear-gradient(to right, $lbry-black 80%, transparent 100%);
     }
   }
@@ -558,7 +552,7 @@
     }
   }
 
-  .media-group__header__title {
+  .media-group__header-title {
     color: transparent;
     // !exist unprefixed, needs SVG for LBRY web
     -webkit-background-clip: text;
@@ -584,23 +578,16 @@
   justify-content: space-between;
 }
 
-.media-group__header__navigation {
+.media-group__header-navigation {
   display: flex;
-  padding-right: $spacing-width * 1/3;
+  padding-right: 1rem;
 
   svg {
     display: block;
   }
-
-  .previous,
-  .next {
-    &:disabled {
-      opacity: 0.3;
-    }
-  }
 }
 
-.media-group__header__title {
+.media-group__header-title {
   align-items: center;
   cursor: default;
   display: flex;

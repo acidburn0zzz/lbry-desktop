@@ -38,7 +38,7 @@ const Header = (props: Props) => {
     <header className="header">
       <div className="header__navigation">
         <Button
-          className="header__navigation__item header__navigation__item--wallet"
+          className="header__navigation-item header__navigation-item--wallet"
           description={__('Your wallet')}
           iconRight="LBC"
           label={
@@ -54,21 +54,21 @@ const Header = (props: Props) => {
         />
 
         <Button
-          className="header__navigation__item header__navigation__item--back"
+          className="header__navigation-item header__navigation-item--back"
           description={__('Navigate back')}
           disabled={isBackDisabled}
           onClick={back}
         />
 
         <Button
-          className="header__navigation__item header__navigation__item--forward"
+          className="header__navigation-item header__navigation-item--forward"
           description={__('Navigate forward')}
           disabled={isForwardDisabled}
           onClick={forward}
         />
 
         <Button
-          className="header__navigation__item header__navigation__item--home"
+          className="header__navigation-item header__navigation-item--home"
           description={__('Home')}
           onClick={() => navigate('/discover')}
         />
@@ -82,12 +82,12 @@ const Header = (props: Props) => {
 
       <div className="header__navigation">
         <Button
-          className="header__navigation__item header__navigation__item--menu"
+          className="header__navigation-item header__navigation-item--menu"
           description={__('Menu')}
         />
 
         <Button
-          className="header__navigation__item header__navigation__item--publish"
+          className="header__navigation-item header__navigation-item--publish"
           description={__('Publish content')}
           label={isUpgradeAvailable ? '' : __('Publish')}
           onClick={() => navigate('/publish')}

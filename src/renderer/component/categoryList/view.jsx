@@ -216,7 +216,7 @@ class CategoryList extends React.PureComponent<Props, State> {
     return (
       <section className="media-group--row">
         <header className="media-group__header">
-          <div className="media-group__header__title">
+          <div className="media-group__header-title">
             {categoryLink ? (
               <Button label={category} navigate="/show" navigateParams={{ uri: categoryLink }} />
             ) : (
@@ -232,15 +232,13 @@ class CategoryList extends React.PureComponent<Props, State> {
             )}
           </div>
           {showScrollButtons && (
-            <nav className="media-group__header__navigation">
+            <nav className="media-group__header-navigation">
               <Button
-                className="previous"
                 disabled={!canScrollPrevious}
                 onClick={this.handleScrollPrevious}
                 icon={icons.ARROW_LEFT}
               />
               <Button
-                className="next"
                 disabled={!canScrollNext}
                 onClick={this.handleScrollNext}
                 icon={icons.ARROW_RIGHT}
