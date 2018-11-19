@@ -2,64 +2,11 @@
   &:not(:last-of-type) {
     margin-bottom: 0.5rem;
   }
-}
 
-
-
-.form-row {
-  display: flex;
-  flex-direction: row;
-
-  &:not(&--vertically-centered) {
-    align-items: flex-end;
+  &.form-field--disabled {
+    opacity: 0.4;
+    pointer-events: none;
   }
-
-  .form-field {
-    &:not(:first-of-type) {
-      padding-left: 1rem;
-    }
-
-    &.form-field--stretch {
-      width: 100%;
-
-      input {
-        max-width: 400px;
-        width: 100%;
-      }
-    }
-  }
-
-
-  button + input,
-  input + button {
-    margin-left: 1rem;
-  }
-}
-
-.form-row--centered {
-  justify-content: center;
-}
-
-.form-row--padded {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.form-row--right {
-  justify-content: flex-end;
-}
-
-.form-row--stretch {
-  flex: 1;
-}
-
-.form-row--vertically-centered {
-  align-items: center;
-}
-
-.form-field.form-field--disabled {
-  opacity: 0.4;
-  pointer-events: none;
 }
 
 .form-field--SimpleMDE {
@@ -173,14 +120,4 @@
   &:disabled {
     opacity: 0.5;
   }
-}
-
-// Not sure if I like these
-// Maybe this should be in gui.scss?
-.input--price-amount {
-  width: 80px;
-}
-
-.input--address {
-  width: 370px;
 }

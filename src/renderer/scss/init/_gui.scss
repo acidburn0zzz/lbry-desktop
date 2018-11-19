@@ -28,6 +28,14 @@ body {
   color: $lbry-white;
 }
 
+blockquote {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+
+  background-color: rgba($lbry-cyan-1, 0.1);
+  border-left: 0.5rem solid $lbry-cyan-5;
+}
+
 code {
   @include font-mono;
   background-color: $lbry-gray-1;
@@ -61,6 +69,14 @@ input {
       border-color: rgba($lbry-black, 0.8);
     }
   }
+}
+
+.input--price-amount {
+  width: 80px;
+}
+
+.input--address {
+  width: 370px;
 }
 
 

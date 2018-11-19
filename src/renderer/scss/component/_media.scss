@@ -17,16 +17,6 @@
 }
 
 .media--placeholder {
-  > * {
-    animation-duration: 2.5s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: loading-animation;
-    animation-timing-function: linear;
-    background-image: linear-gradient(to right, $lbry-gray-3, transparent 100%);
-    background-size: 500px;
-  }
-
   .media__channel,
   .media__date,
   .media__title {
@@ -35,11 +25,17 @@
 
   .media__channel,
   .media__title {
-    margin-bottom: 0.25rem;
+    @media (min-width: 601px) {
+      margin-bottom: 0.25rem;
+    }
   }
 
   .media__channel {
     width: 70%;
+
+    @media (max-width: 600px) {
+      margin-bottom: 0.25rem;
+    }
   }
 
   .media__date {
@@ -59,9 +55,6 @@
     margin-bottom: 1rem;
   }
 
-  .media__date {
-  }
-
   .media__info {
     padding-left: 1rem;
     width: 50%;
@@ -70,9 +63,6 @@
   .media__properties {
     bottom: -1.5rem; left: calc(-100% - 1.5rem);
     position: absolute;
-  }
-
-  .media__subtitle {
   }
 
   .media__thumb {
@@ -135,12 +125,30 @@
 
 
 //  M E D I A
+//  C H A N N E L
+
+.media__channel--placeholder {
+  @include placeholder;
+}
+
+
+
+//  M E D I A
 //  C O N T E N T
 
 .media__content--large {
   float: left;
   padding-right: 2rem;
   width: calc(100% - 30rem);
+}
+
+
+
+//  M E D I A
+//  D A T E
+
+.media__date--placeholder {
+  @include placeholder;
 }
 
 
@@ -345,19 +353,21 @@
 
 .media__thumb {
   @include thumbnail;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 
-  &:not(&--nsfw) {
-    background-color: $lbry-cyan-5;
-    background-image: linear-gradient(to bottom right, $lbry-teal-3, $lbry-cyan-5 100%);
+  &:not(&--nsfw):not(&--placeholder) {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
 .media__thumb--nsfw {
   background-color: $lbry-grape-5;
   background-image: linear-gradient(to bottom right, $lbry-teal-3, $lbry-grape-5 100%);
+}
+
+.media__thumb--placeholder {
+  @include placeholder;
 }
 
 
@@ -375,6 +385,10 @@
   display: inline;
   font-size: 2rem;
   line-height: 1.33;
+}
+
+.media__title--placeholder {
+  @include placeholder;
 }
 
 

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
 
-const LbcSymbol = () => <span>℄</span>;
+const LbcSymbol = () => <span>LBC</span>; // ℄
 
 export default LbcSymbol;

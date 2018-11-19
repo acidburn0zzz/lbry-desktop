@@ -27,7 +27,6 @@ type Props = {
   isResolvingUri: boolean,
   /* eslint-enable react/no-unused-prop-types */
   isSubscribed: boolean,
-  showSubscribedLogo: boolean,
   isNew: boolean,
 };
 
@@ -64,16 +63,15 @@ class FileCard extends React.PureComponent<Props> {
       pending,
       isSubscribed,
       isNew,
-      showSubscribedLogo,
     } = this.props;
 
     if (!claim && !pending) {
       return (
         <section className="media media--placeholder small">
-          <div className="media__thumb" />
-          <div className="media__title" />
-          <div className="media__channel" />
-          <div className="media__date" />
+          <div className="media__thumb media__thumb--placeholder" />
+          <div className="media__title media__title--placeholder" />
+          <div className="media__channel media__channel--placeholder" />
+          <div className="media__date media__date--placeholder" />
         </section>
       );
     }
@@ -122,7 +120,7 @@ class FileCard extends React.PureComponent<Props> {
           {isRewardContent && <Icon iconColor="red" icon={icons.FEATURED} />}
           {isSubscribed && <Icon icon={icons.HEART} />}
           {fileInfo && <Icon icon={icons.LOCAL} />}
-          {isNew && (<span className="badge badge--alert">{__('NEW')}</span>)}
+          {isNew && <span className="badge badge--alert">{__('NEW')}</span>}
         </div>
       </section>
     );

@@ -58,25 +58,24 @@ const SideBar = (props: Props) => {
                 // was really slow and looked pretty bad. Possible fix is upgrading to v2
                 // Not sure if that has better performance
               }
-              {!!subLinks.length &&
-                active && (
-                  <ul key="0" className="navigation__link__items">
-                    {subLinks.map(({ active: subLinkActive, label: subLabel, path: subPath }) => (
-                      <li
-                        className={classnames('navigation__link__item', {
-                          'navigation__link__item--active': subLinkActive,
-                        })}
-                        key={subPath}
-                      >
-                        {subPath ? (
-                          <Button label={subLabel} navigate={subPath} />
-                        ) : (
-                          <span>{subLabel}</span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+              {!!subLinks.length && active && (
+                <ul key="0" className="navigation__link-items">
+                  {subLinks.map(({ active: subLinkActive, label: subLabel, path: subPath }) => (
+                    <li
+                      className={classnames('navigation__link-item', {
+                        'navigation__link-item--active': subLinkActive,
+                      })}
+                      key={subPath}
+                    >
+                      {subPath ? (
+                        <Button label={subLabel} navigate={subPath} />
+                      ) : (
+                        <span>{subLabel}</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>

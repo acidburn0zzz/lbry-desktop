@@ -81,6 +81,10 @@
     font-family: Consolas, 'Lucida Console', 'Source Sans', monospace;
   }
 
+  table {
+    @extend .table;
+  }
+
   a {
     color: $lbry-blue-1;
     display: inline-block;
@@ -107,13 +111,4 @@
       display: inline-block;
     }
   }
-}
-
-blockquote {
-  margin-bottom: 1rem;
-  padding: 0.8rem;
-
-  background-color: rgba($lbry-cyan-1, 0.1);
-  // color: $lbry-gray-5;
-  border-left: 0.5rem solid $lbry-cyan-5;
 }
