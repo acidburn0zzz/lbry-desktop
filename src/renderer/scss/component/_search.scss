@@ -8,13 +8,13 @@
 
     &:not(.media--large) {
       .media__thumb {
-        width: 20rem; height: 10rem;
+        width: 20rem;
       }
     }
 
     &.media--large {
       .media__thumb {
-        width: 40rem; height: 20rem;
+        width: 40rem;
       }
     }
   }

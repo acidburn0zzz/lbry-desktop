@@ -20,8 +20,6 @@ import FileDownloadLink from 'component/fileDownloadLink';
 import classnames from 'classnames';
 import getMediaType from 'util/getMediaType';
 import RecommendedContent from 'component/recommendedContent';
-import { FormField, FormRow } from 'component/common/form';
-import ToolTip from 'component/common/tooltip';
 
 type Props = {
   claim: Claim,
@@ -36,7 +34,6 @@ type Props = {
   fetchFileInfo: string => void,
   fetchCostInfo: string => void,
   setViewed: string => void,
-  autoplay: boolean,
   isSubscribed: ?string,
   isSubscribed: boolean,
   channelUri: string,
@@ -125,7 +122,6 @@ class FilePage extends React.Component<Props> {
       navigate,
       costInfo,
       fileInfo,
-      autoplay,
       channelUri,
     } = this.props;
 

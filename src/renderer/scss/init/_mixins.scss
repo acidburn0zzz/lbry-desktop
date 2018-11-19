@@ -32,6 +32,23 @@
     'Source Serif Pro', serif;
 }
 
+@mixin thumbnail {
+  &::before,
+  &::after {
+    content: "";
+  }
+
+  &::before {
+    float: left;
+    padding-top: var(--video-aspect-ratio);
+  }
+
+  &::after {
+    clear: both;
+    display: block;
+  }
+}
+
 @mixin truncate {
   display: -webkit-box;
   overflow: hidden;

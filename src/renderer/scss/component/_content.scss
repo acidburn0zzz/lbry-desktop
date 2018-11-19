@@ -34,12 +34,12 @@
 }
 
 .content__embedded {
-  margin-bottom: 2rem; padding-top: var(--video-aspect-ratio);
-
+  @include thumbnail;
   align-items: center;
   background-color: $lbry-black;
   display: flex;
   justify-content: center;
+  margin-bottom: 2rem;
   position: relative;
   width: 100%;
 
@@ -48,7 +48,6 @@
     height: 100%;
     top: 0;
     left: 0;
-
     position: absolute;
 
     &:hover {
@@ -58,12 +57,12 @@
 }
 
 .content__empty {
+  @include thumbnail;
   align-items: center;
   background-color: $lbry-black;
   color: $lbry-white;
   display: flex;
   justify-content: center;
-  padding-top: var(--video-aspect-ratio);
   width: 100%;
 }
 
