@@ -51,7 +51,7 @@ class ChannelTile extends React.PureComponent<Props> {
       <section
         onClick={onClick}
         role="button"
-        className={classnames('media card--link', {
+        className={classnames('media media--search-result card--link', {
           'media--small': size === 'small',
           'media--large': size === 'large',
         })}

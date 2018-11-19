@@ -99,7 +99,7 @@ class FileCard extends React.PureComponent<Props> {
         tabIndex="0"
         role="button"
         onClick={!pending ? () => navigate('/show', { uri }) : () => {}}
-        className={classnames('media small', {
+        className={classnames('media', {
           'media--link': !pending,
           'media--pending': pending,
         })}

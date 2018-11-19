@@ -123,7 +123,7 @@ class FileTile extends React.PureComponent<Props> {
 
     return !name && hideNoResult ? null : (
       <section
-        className={classnames('media card--link', {
+        className={classnames('media media--search-result card--link', {
           'media--small': size === 'small',
           'media--large': size === 'large',
         })}

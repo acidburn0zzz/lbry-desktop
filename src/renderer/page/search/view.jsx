@@ -51,7 +51,7 @@ class SearchPage extends React.PureComponent<Props> {
         <section className="search">
           {query && isValid && (
             <header className="search__header">
-              <h1 className="search__header__title">
+              <h1 className="search__title">
                 {`lbry://${query}`}
                 <ToolTip
                   icon

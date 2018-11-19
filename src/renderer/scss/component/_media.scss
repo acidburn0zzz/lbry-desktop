@@ -1,4 +1,21 @@
+//  M E D I A
+//  L A R G E
+
 .media--large {
+  display: flex;
+  font-size: 1.5rem;
+
+  .media__actions .btn__content {
+    svg {
+      width: 1.5rem; height: 100%;
+    }
+  }
+
+  .media__info {
+    margin-left: 1rem;
+    width: calc(100% - 20rem);
+  }
+
   .media__thumb {
     margin-bottom: 1rem;
     width: 40rem;
@@ -15,6 +32,11 @@
     }
   }
 }
+
+
+
+//  M E D I A
+//  P L A C E H O L D E R
 
 .media--placeholder {
   .media__channel,
@@ -46,6 +68,54 @@
     width: 100%;
   }
 }
+
+
+
+//  M E D I A
+//  S E A R C H   R E S U L T
+
+.media--search-result {
+  display: flex;
+
+  &:not(:last-of-type) {
+    margin-bottom: 1.5rem;
+  }
+
+  .media__actions .btn__content {
+    display: inline-flex;
+
+    .btn__label {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .media__info {
+    margin-left: 1rem;
+    width: calc(100% - 20rem);
+  }
+
+  .media__properties {
+    bottom: -5.5rem; left: -20rem;
+    position: absolute;
+  }
+
+  .media__subtext {
+    padding-top: 1rem;
+  }
+
+  .media__thumb {
+    width: 20rem;
+  }
+
+  .media__title {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+//  M E D I A
+//  S M A L L
 
 .media--small {
   display: flex;
