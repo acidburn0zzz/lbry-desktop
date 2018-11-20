@@ -39,7 +39,7 @@ class FileListSearch extends React.PureComponent<Props> {
               <div className="search__results-title">{__('Search Results')}</div>
               <HiddenNsfwClaims uris={uris} />
               {!isSearching && fileResults.length ? (
-                fileResults.map(uri => <FileTile key={uri} uri={uri} />)
+                fileResults.map(uri => <FileTile isSearchResult key={uri} uri={uri} />)
               ) : (
                 <NoResults />
               )}
@@ -57,7 +57,9 @@ class FileListSearch extends React.PureComponent<Props> {
             <section className="search__results-section">
               <div className="search__results-title">{__('Your downloads')}</div>
               {downloadUris && downloadUris.length ? (
-                downloadUris.map(uri => <FileTile hideNoResult key={uri} uri={uri} />)
+                downloadUris.map(uri => (
+                  <FileTile hideNoResult isSearchResult key={uri} uri={uri} />
+                ))
               ) : (
                 <NoResults />
               )}

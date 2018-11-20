@@ -16,6 +16,7 @@ type Props = {
   obscureNsfw: boolean,
   claimIsMine: boolean,
   isDownloaded: boolean,
+  isSearchResult: boolean,
   uri: string,
   isResolvingUri: boolean,
   rewardedContentClaimIds: Array<string>,
@@ -67,6 +68,7 @@ class FileTile extends React.PureComponent<Props> {
       claim,
       metadata,
       isResolvingUri,
+      isSearchResult,
       navigate,
       obscureNsfw,
       claimIsMine,
@@ -124,7 +126,7 @@ class FileTile extends React.PureComponent<Props> {
     return !name && hideNoResult ? null : (
       <section
         className={classnames('media card--link', {
-          // media--search-result
+          'media--search-result': isSearchResult,
           'media--small': size === 'small',
           'media--large': size === 'large',
         })}

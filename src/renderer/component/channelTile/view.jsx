@@ -9,6 +9,7 @@ import type { Claim } from 'types/claim';
 type Props = {
   uri: string,
   isResolvingUri: boolean,
+  isSearchResult: boolean,
   totalItems: number,
   size: string,
   claim: ?Claim,
@@ -36,7 +37,7 @@ class ChannelTile extends React.PureComponent<Props> {
   }
 
   render() {
-    const { claim, navigate, isResolvingUri, totalItems, uri, size } = this.props;
+    const { claim, navigate, isResolvingUri, isSearchResult, totalItems, uri, size } = this.props;
 
     let channelName;
     let subscriptionUri;
@@ -51,7 +52,8 @@ class ChannelTile extends React.PureComponent<Props> {
       <section
         onClick={onClick}
         role="button"
-        className={classnames('media media--search-result card--link', {
+        className={classnames('media card--link', {
+          'media--search-result': isSearchResult,
           'media--small': size === 'small',
           'media--large': size === 'large',
         })}
