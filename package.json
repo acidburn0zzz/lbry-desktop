@@ -84,7 +84,7 @@
     "stream-to-blob-url": "^2.1.1",
     "three": "^0.93.0",
     "tree-kill": "^1.1.0",
-    "y18n": "^4.0.0"
+    "y18n": "^4.0.1"
   },
   "devDependencies": {
     "@lbry/color": "^1.0.2",
