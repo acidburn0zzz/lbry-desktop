@@ -83,7 +83,7 @@
     "source-map-support": "^0.5.4",
     "stream-to-blob-url": "^2.1.1",
     "three": "^0.93.0",
-    "tree-kill": "^1.1.0",
+    "tree-kill": "^1.2.2",
     "y18n": "^4.0.0"
   },
   "devDependencies": {
